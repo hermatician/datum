@@ -14937,6 +14937,86 @@
 		)
 	)
 	(gr_line
+		(start 56.1 78.8)
+		(end 53.95 82.8)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "0ad5a239-4ebf-49b9-b312-e9b90dc79618")
+	)
+	(gr_line
+		(start 56.1 78.8)
+		(end 56.1 82.8)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "0d4f8d45-9d00-4d76-bb80-d2aac6c02074")
+	)
+	(gr_line
+		(start 56.1 78.8)
+		(end 57.95 82.8)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "063a52b9-5ab0-4d01-a650-2019e0ab945f")
+	)
+	(gr_line
+		(start 57.95 78.6)
+		(end 53.95 78.6)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "0b2eb950-4f6d-4961-8e46-830954538197")
+	)
+	(gr_line
+		(start 70.45 78.8)
+		(end 68.3 82.8)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "B.SilkS")
+		(uuid "92ba4d06-3ab2-4d52-a83b-34a8d07a9e47")
+	)
+	(gr_line
+		(start 70.45 78.8)
+		(end 70.45 82.8)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "B.SilkS")
+		(uuid "81b78fcf-7c1c-4ff5-9908-6e62ca6d65a5")
+	)
+	(gr_line
+		(start 70.45 78.8)
+		(end 72.3 82.8)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "B.SilkS")
+		(uuid "2a5627de-7d0b-47ce-a954-3b78bdec282d")
+	)
+	(gr_line
+		(start 72.3 78.6)
+		(end 68.3 78.6)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "B.SilkS")
+		(uuid "80c2317c-7694-4e8b-9187-f923001c1ae9")
+	)
+	(gr_line
 		(start 18.690055 36.976702)
 		(end 18.730254 86.245024)
 		(stroke
@@ -15161,6 +15241,41 @@
 			(justify left)
 		)
 	)
+	(gr_text "Christian Faurholt"
+		(at 58.55 83 0)
+		(layer "F.SilkS")
+		(uuid "4bf7aeee-1496-4f91-838b-9199f5b16eb8")
+		(effects
+			(font
+				(size 0.65 0.65)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "made by"
+		(at 58.55 82 0)
+		(layer "F.SilkS")
+		(uuid "4062db09-31cc-4541-87f6-38cbd7dd6a00")
+		(effects
+			(font
+				(size 0.8 0.8)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "datum"
+		(at 58.35 81 0)
+		(layer "F.SilkS")
+		(uuid "26be3636-9e82-49db-b590-07b255f35872")
+		(effects
+			(font
+				(size 2 2)
+				(thickness 0.4)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
 	(gr_text "RAW"
 		(at 116.40097 49.0728 0)
 		(layer "B.SilkS")
@@ -15207,6 +15322,41 @@
 				(thickness 0.15)
 			)
 			(justify mirror)
+		)
+	)
+	(gr_text "Christian Faurholt"
+		(at 67.7 83 0)
+		(layer "B.SilkS")
+		(uuid "45469020-bf13-4178-a9d2-e4eb9bea4ad5")
+		(effects
+			(font
+				(size 0.65 0.65)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "made by"
+		(at 67.7 82 0)
+		(layer "B.SilkS")
+		(uuid "175dbf68-e491-4e9d-a551-01a7e69ebba7")
+		(effects
+			(font
+				(size 0.8 0.8)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "datum"
+		(at 68 81 0)
+		(layer "B.SilkS")
+		(uuid "c599ac6b-064e-4770-827e-b8699aa526ba")
+		(effects
+			(font
+				(size 2 2)
+				(thickness 0.4)
+				(bold yes)
+			)
+			(justify left bottom mirror)
 		)
 	)
 	(segment
