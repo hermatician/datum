@@ -1,0 +1,5 @@
+# KiCad
+*.lck
+*~
+.history/
+fp-info-cache
