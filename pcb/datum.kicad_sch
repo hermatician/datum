@@ -159,7 +159,7 @@
         )
       )
     )
-    (symbol "half-swept-rescue:AudioJack4dpb-tokas_bp" (in_bom yes) (on_board yes)
+    (symbol "datum-rescue:AudioJack4dpb-tokas_bp" (in_bom yes) (on_board yes)
       (property "Reference" "J" (id 0) (at 0 8.89 0)
         (effects (font (size 1.27 1.27)))
       )
@@ -247,7 +247,7 @@
         )
       )
     )
-    (symbol "half-swept-rescue:ProMicro-kbd-bigblackpill-34key-rescue-sweepv2-rescue" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
+    (symbol "datum-rescue:ProMicro-kbd-bigblackpill-34key-rescue-sweepv2-rescue" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
       (property "Reference" "U" (id 0) (at 0 24.13 0)
         (effects (font (size 1.524 1.524)))
       )
@@ -1401,7 +1401,7 @@
     (pin "1" (uuid 5b94d92f-8d90-40a8-95e2-05176b497c54))
   )
 
-  (symbol (lib_id "half-swept-rescue:ProMicro-kbd-bigblackpill-34key-rescue-sweepv2-rescue") (at 176.53 54.61 0) (unit 1)
+  (symbol (lib_id "datum-rescue:ProMicro-kbd-bigblackpill-34key-rescue-sweepv2-rescue") (at 176.53 54.61 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 00000000-0000-0000-0000-00006049d3fb)
     (property "Reference" "U1" (id 0) (at 176.53 25.5778 0)
@@ -1728,7 +1728,7 @@
     (pin "3" (uuid bc557f77-2081-4572-b9a6-1e8513cc6b52))
   )
 
-  (symbol (lib_id "half-swept-rescue:AudioJack4dpb-tokas_bp") (at 121.92 67.31 0) (unit 1)
+  (symbol (lib_id "datum-rescue:AudioJack4dpb-tokas_bp") (at 121.92 67.31 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 00000000-0000-0000-0000-0000605e7e3e)
     (property "Reference" "J1" (id 0) (at 120.8278 59.055 0))
@@ -2000,7 +2000,7 @@
     (pin "2" (uuid 2a182314-6132-430d-9e18-2400afd96c3e))
   )
 
-  (symbol (lib_id "half-swept-rescue:ProMicro-kbd-bigblackpill-34key-rescue-sweepv2-rescue") (at 175.26 128.27 0) (unit 1)
+  (symbol (lib_id "datum-rescue:ProMicro-kbd-bigblackpill-34key-rescue-sweepv2-rescue") (at 175.26 128.27 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 00000000-0000-0000-0000-0000608ef20e)
     (property "Reference" "U2" (id 0) (at 175.26 99.2378 0)
@@ -2056,7 +2056,7 @@
     (pin "2" (uuid 45eb1bc6-b789-44c6-8e44-49606d331ade))
   )
 
-  (symbol (lib_id "half-swept-rescue:AudioJack4dpb-tokas_bp") (at 123.19 166.37 0) (unit 1)
+  (symbol (lib_id "datum-rescue:AudioJack4dpb-tokas_bp") (at 123.19 166.37 0) (unit 1)
     (in_bom yes) (on_board yes)
     (uuid 00000000-0000-0000-0000-0000608f2563)
     (property "Reference" "J2" (id 0) (at 122.0978 158.115 0))

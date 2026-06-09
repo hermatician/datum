@@ -284,7 +284,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "half-swept.kicad_pro",
+    "filename": "datum.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -339,8 +339,8 @@
     "legacy_lib_list": [],
     "top_level_sheets": [
       {
-        "filename": "half-swept.kicad_sch",
-        "name": "half-swept",
+        "filename": "datum.kicad_sch",
+        "name": "datum",
         "uuid": "00000000-0000-0000-0000-000000000000"
       }
     ]
