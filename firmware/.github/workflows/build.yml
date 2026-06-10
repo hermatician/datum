@@ -1,0 +1,14 @@
+name: Build datum firmware
+
+on:
+  push:
+    paths:
+      - 'firmware/**'
+  pull_request:
+    paths:
+      - 'firmware/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
