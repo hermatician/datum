@@ -1,5 +1,4 @@
-// datum keymap — 36 keys (4 thumb keys)
-// Gallium columnar stagger layout
+// datum keymap — Gallium columnar stagger
 // ZMK firmware for Nice!nano V2 + Cradio shield
 
 #include <behaviors.dtsi>
@@ -38,8 +37,6 @@
             bindings = <&kp>, <&kp>;
         };
 
-        // Hold-tap: hold=macro, tap=kp
-        // One behavior per Danish key since each needs a specific macro
         sqt_ae: sqt_ae {
             compatible = "zmk,behavior-hold-tap";
             label = "SQT_AE";
@@ -108,9 +105,9 @@
                 ;
         };
 
-        dcolon: dcolon {
+        double_colon: double_colon {
             compatible = "zmk,behavior-macro";
-            label = "DCOLON";
+            label = "DOUBLE_COLON";
             #binding-cells = <0>;
             bindings = <&kp COLON &kp COLON>;
         };
@@ -133,10 +130,10 @@
     combos {
         compatible = "zmk,combos";
 
-        combo_dcolon {
+        combo_double_colon {
             timeout-ms = <50>;
-            key-positions = <15 16>;
-            bindings = <&dcolon>;
+            key-positions = <16 17>;
+            bindings = <&double_colon>;
         };
 
         combo_arrow {
@@ -159,79 +156,58 @@
         // b  l  d  c  v  |  j  y  o  u  ,
         // n  r  t  s  g  |  p  h  a  e  i
         // x  q  m  w  z  |  k  f  '  ;  .
-        //      DEL SPC    |  BSPC ENTER
+        //       DEL SPC   |  BSPC ENTER
         base_layer {
             label = "BASE";
             bindings = <
-                &kp B        &kp L        &kp D        &kp C        &kp V
-                &hm LGUI N   &hm LALT R   &hm LSHFT T  &hm LCTRL S  &kp G
-                &kp X        &kp Q        &kp M        &kp W        &kp Z
-                &lt SYM DEL  &lt NAV SPACE
-
-                &kp J          &kp Y          &kp O          &kp U          &kp COMMA
-                &hm RGUI P     &hm RALT H     &hm RSHFT A    &hm RCTRL E    &kp I
-                &kp K          &kp F          &sqt_ae 0 SQT  &semi_oe 0 SEMI &dot_aa 0 DOT
-                &lt FN BSPC    &lt MEDIA RET
+                &kp B        &kp L        &kp D        &kp C        &kp V         &kp J          &kp Y          &kp O          &kp U          &kp COMMA
+                &hm LGUI N   &hm LALT R   &hm LSHFT T  &hm LCTRL S  &kp G         &kp P          &hm RCTRL H    &hm RSHFT A    &hm RALT E     &hm RGUI I
+                &kp X        &kp Q        &kp M        &kp W        &kp Z         &kp K          &kp F          &sqt_ae 0 SQT  &semi_oe 0 SEMI &dot_aa 0 DOT
+                                                       &lt SYM DEL  &lt NAV SPACE &lt FN BSPC    &lt MEDIA RET
             >;
         };
 
+        // NAV — Navigation + Numbers
         nav_layer {
             label = "NAV";
             bindings = <
-                &kp N1   &kp N2    &kp N3   &kp N4   &kp N5
-                &kp TAB  &kp HOME  &kp UP   &kp END  &kp PG_UP
-                &kp ESC  &trans    &trans   &trans   &kp PG_DN
-                &trans   &trans
-
-                &kp N6    &kp N7    &kp N8     &kp N9     &kp N0
-                &kp BSPC  &kp LEFT  &kp DOWN   &kp RIGHT  &kp DEL
-                &trans    &trans    &trans     &trans     &kp RET
-                &lt FN BSPC  &trans
+                &kp N1   &kp N2    &kp N3   &kp N4   &kp N5        &kp N6    &kp N7    &kp N8     &kp N9     &kp N0
+                &kp TAB  &kp HOME  &kp UP   &kp END  &kp PG_UP     &kp BSPC  &kp LEFT  &kp DOWN   &kp RIGHT  &kp DEL
+                &kp ESC  &trans    &trans   &trans   &kp PG_DN     &trans    &trans    &trans     &trans     &kp RET
+                                            &trans   &trans        &lt FN BSPC &trans
             >;
         };
 
+        // SYM — Symbols
         sym_layer {
             label = "SYM";
             bindings = <
-                &kp EXCL   &kp AT    &kp HASH  &kp DLLR  &kp PRCNT
-                &kp GRAVE  &kp MINUS &kp EQUAL &kp LBKT  &kp LBRC
-                &kp TILDE  &kp PIPE  &kp BSLH  &kp LT    &kp GT
-                &trans     &lt FN SPACE
-
-                &kp CARET  &kp AMPS  &kp STAR   &kp LPAR   &kp RPAR
-                &kp RBRC   &kp RBKT  &kp PLUS   &kp UNDER  &kp SEMI
-                &dcolon    &kp DQT   &kp SQT    &kp COLON  &kp QMARK
-                &trans     &trans
+                &kp EXCL   &kp AT    &kp HASH  &kp DLLR  &kp PRCNT     &kp CARET     &kp AMPS  &kp ASTRK  &kp LPAR   &kp RPAR
+                &kp GRAVE  &kp MINUS &kp EQUAL &kp LBKT  &kp LBRC      &kp RBRC      &kp RBKT  &kp PLUS   &kp UNDER  &kp SEMI
+                &kp TILDE  &kp PIPE  &kp BSLH  &kp LT    &kp GT        &double_colon &kp DQT   &kp SQT    &kp COLON  &kp QMARK
+                                               &trans    &lt FN SPACE  &trans        &trans
             >;
         };
 
+        // FN — Function + System
         fn_layer {
             label = "FN";
             bindings = <
-                &kp F1       &kp F2   &kp F3  &kp F4  &kp F5
-                &kp F11      &kp F12  &trans  &trans  &kp CAPS
-                &bootloader  &trans   &trans  &trans  &trans
-                &trans       &trans
-
-                &kp F6  &kp F7      &kp F8       &kp F9       &kp F10
-                &trans  &kp K_MUTE  &kp C_VOL_DN &kp C_VOL_UP &trans
-                &trans  &trans      &trans       &trans       &trans
-                &trans  &trans
+                &kp F1      &kp F2   &kp F3  &kp F4  &kp F5        &kp F6  &kp F7      &kp F8       &kp F9       &kp F10
+                &kp F11     &kp F12  &trans  &trans  &kp CAPS      &trans  &kp C_MUTE  &kp C_VOL_DN &kp C_VOL_UP &trans
+                &bootloader &trans   &trans  &trans  &trans        &trans  &trans      &trans       &trans       &trans
+                                             &trans  &trans        &trans  &trans
             >;
         };
 
+        // MEDIA — Media controls
         media_layer {
             label = "MEDIA";
             bindings = <
-                &trans  &trans      &trans      &trans      &trans
-                &trans  &kp C_PREV  &kp C_PP    &kp C_NEXT  &trans
-                &trans  &trans      &trans      &trans      &trans
-                &trans  &trans
-
-                &trans  &trans      &trans       &trans       &trans
-                &trans  &trans      &trans       &trans       &trans
-                &trans  &kp K_MUTE  &kp C_VOL_DN &kp C_VOL_UP &trans
-                &trans  &trans
+                &trans  &trans      &trans    &trans      &trans        &trans  &trans      &trans       &trans       &trans
+                &trans  &kp C_PREV  &kp C_PP  &kp C_NEXT  &trans        &trans  &trans      &trans       &trans       &trans
+                &trans  &trans      &trans    &trans      &trans        &trans  &kp C_MUTE  &kp C_VOL_DN &kp C_VOL_UP &trans
+                                              &trans      &trans        &trans  &trans
             >;
         };
     };
