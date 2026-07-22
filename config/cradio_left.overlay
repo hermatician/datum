@@ -1,3 +1,4 @@
+#include <dt-bindings/zmk/matrix_transform.h>
 /*
  * datum left half overlay
  * Extends Cradio from 34 to 36 keys
