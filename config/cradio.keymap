@@ -1,16 +1,38 @@
-// datum keymap — Gallium columnar stagger
-// ZMK firmware for Nice!nano V2 + Cradio shield
+/*
+ * datum keymap
+ * Gallium columnar stagger layout
+ * ZMK firmware for Nice!nano V2 + Cradio shield
+ *
+ * Thumb cluster (positions 30-33):
+ *   30 = left outer  = DEL  / SYM
+ *   31 = left inner  = SPC  / NAV
+ *   32 = right inner = BSPC / EXT
+ *   33 = right outer = ENT  / MEDIA
+ *
+ * Thumb combos for extra layers:
+ *   30+31 = SETTINGS
+ *   31+32 = FN
+ *   32+33 = ACCENT (danish)
+ *
+ * Bottom right row hold for Danish:
+ *   SQT  hold = ae
+ *   SEMI hold = oe
+ *   DOT  hold = aa
+ */
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
-#define BASE  0
-#define NAV   1
-#define SYM   2
-#define FN    3
-#define MEDIA 4
+#define BASE     0
+#define NAV      1
+#define SYM      2
+#define EXT      3
+#define FN       4
+#define MEDIA    5
+#define ACCENT   6
+#define SETTINGS 7
 
 &mt {
     tapping-term-ms = <200>;
@@ -22,6 +44,10 @@
     tapping-term-ms = <200>;
     flavor = "balanced";
     require-prior-idle-ms = <150>;
+};
+
+&sk {
+    ignore-modifiers;
 };
 
 / {
@@ -69,6 +95,7 @@
     };
 
     macros {
+        // Linux GTK Unicode: Ctrl+Shift+U, hex, Enter
         ae: ae {
             compatible = "zmk,behavior-macro";
             label = "AE";
@@ -105,9 +132,45 @@
                 ;
         };
 
-        double_colon: double_colon {
+        AE: AE {
             compatible = "zmk,behavior-macro";
-            label = "DOUBLE_COLON";
+            label = "AE_UPPER";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL &kp LSHFT>
+                , <&macro_tap &kp U>
+                , <&macro_release &kp LCTRL &kp LSHFT>
+                , <&macro_tap &kp C &kp N6 &kp RET>
+                ;
+        };
+
+        OE: OE {
+            compatible = "zmk,behavior-macro";
+            label = "OE_UPPER";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL &kp LSHFT>
+                , <&macro_tap &kp U>
+                , <&macro_release &kp LCTRL &kp LSHFT>
+                , <&macro_tap &kp D &kp N8 &kp RET>
+                ;
+        };
+
+        AA: AA {
+            compatible = "zmk,behavior-macro";
+            label = "AA_UPPER";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL &kp LSHFT>
+                , <&macro_tap &kp U>
+                , <&macro_release &kp LCTRL &kp LSHFT>
+                , <&macro_tap &kp C &kp N5 &kp RET>
+                ;
+        };
+
+        dcolon: dcolon {
+            compatible = "zmk,behavior-macro";
+            label = "DCOLON";
             #binding-cells = <0>;
             bindings = <&kp COLON &kp COLON>;
         };
@@ -125,27 +188,50 @@
             #binding-cells = <0>;
             bindings = <&kp EQUAL &kp GT>;
         };
+
+        unstick: unstick {
+            compatible = "zmk,behavior-macro";
+            label = "ZM_unstick";
+            #binding-cells = <0>;
+            bindings = <&kp LSHIFT &kp RSHIFT &kp LCTRL &kp RCTRL &kp LALT &kp RALT &kp LGUI &kp RGUI>;
+        };
     };
 
     combos {
         compatible = "zmk,combos";
 
-        combo_double_colon {
+        // Rust combos
+        combo_dcolon {
             timeout-ms = <50>;
             key-positions = <16 17>;
-            bindings = <&double_colon>;
+            bindings = <&dcolon>;
         };
-
         combo_arrow {
             timeout-ms = <50>;
             key-positions = <26 27>;
             bindings = <&arrow>;
         };
-
         combo_fat_arrow {
             timeout-ms = <50>;
             key-positions = <27 28>;
             bindings = <&fat_arrow>;
+        };
+
+        // Thumb combos for extra layers
+        combo_settings {
+            timeout-ms = <300>;
+            key-positions = <30 31>;
+            bindings = <&mo SETTINGS>;
+        };
+        combo_fn {
+            timeout-ms = <200>;
+            key-positions = <31 32>;
+            bindings = <&mo FN>;
+        };
+        combo_accent {
+            timeout-ms = <300>;
+            key-positions = <32 33>;
+            bindings = <&mo ACCENT>;
         };
     };
 
@@ -156,14 +242,14 @@
         // b  l  d  c  v  |  j  y  o  u  ,
         // n  r  t  s  g  |  p  h  a  e  i
         // x  q  m  w  z  |  k  f  '  ;  .
-        //       DEL SPC   |  BSPC ENTER
+        //       DEL SPC   |  BSPC ENT
         base_layer {
             label = "BASE";
             bindings = <
-                &kp B        &kp L        &kp D        &kp C        &kp V         &kp J          &kp Y          &kp O          &kp U          &kp COMMA
-                &hm LGUI N   &hm LALT R   &hm LSHFT T  &hm LCTRL S  &kp G         &kp P          &hm RCTRL H    &hm RSHFT A    &hm RALT E     &hm RGUI I
-                &kp X        &kp Q        &kp M        &kp W        &kp Z         &kp K          &kp F          &sqt_ae 0 SQT  &semi_oe 0 SEMI &dot_aa 0 DOT
-                                                       &lt SYM DEL  &lt NAV SPACE &lt FN BSPC    &lt MEDIA RET
+                &kp B        &kp L        &kp D        &kp C        &kp V         &kp J           &kp Y           &kp O           &kp U           &kp COMMA
+                &hm LGUI N   &hm LALT R   &hm LSHFT T  &hm LCTRL S  &kp G         &kp P           &hm RCTRL H     &hm RSHFT A     &hm RALT E      &hm RGUI I
+                &kp X        &kp Q        &kp M        &kp W        &kp Z         &kp K           &kp F           &sqt_ae 0 SQT   &semi_oe 0 SEMI  &dot_aa 0 DOT
+                                                       &lt SYM DEL  &lt NAV SPACE &lt EXT BSPC    &lt MEDIA RET
             >;
         };
 
@@ -174,7 +260,7 @@
                 &kp N1   &kp N2    &kp N3   &kp N4   &kp N5        &kp N6    &kp N7    &kp N8     &kp N9     &kp N0
                 &kp TAB  &kp HOME  &kp UP   &kp END  &kp PG_UP     &kp BSPC  &kp LEFT  &kp DOWN   &kp RIGHT  &kp DEL
                 &kp ESC  &trans    &trans   &trans   &kp PG_DN     &trans    &trans    &trans     &trans     &kp RET
-                                            &trans   &trans        &lt FN BSPC &trans
+                                            &trans   &trans        &trans    &trans
             >;
         };
 
@@ -182,21 +268,32 @@
         sym_layer {
             label = "SYM";
             bindings = <
-                &kp EXCL   &kp AT    &kp HASH  &kp DLLR  &kp PRCNT     &kp CARET     &kp AMPS  &kp ASTRK  &kp LPAR   &kp RPAR
-                &kp GRAVE  &kp MINUS &kp EQUAL &kp LBKT  &kp LBRC      &kp RBRC      &kp RBKT  &kp PLUS   &kp UNDER  &kp SEMI
-                &kp TILDE  &kp PIPE  &kp BSLH  &kp LT    &kp GT        &double_colon &kp DQT   &kp SQT    &kp COLON  &kp QMARK
-                                               &trans    &lt FN SPACE  &trans        &trans
+                &kp EXCL   &kp AT    &kp HASH  &kp DLLR  &kp PRCNT     &kp CARET  &kp AMPS  &kp STAR   &kp LPAR   &kp RPAR
+                &kp GRAVE  &kp MINUS &kp EQUAL &kp LBKT  &kp LBRC      &kp RBRC   &kp RBKT  &kp PLUS   &kp UNDER  &kp SEMI
+                &kp TILDE  &kp PIPE  &kp BSLH  &kp LT    &kp GT        &dcolon    &kp DQT   &kp SQT    &kp COLON  &kp QMARK
+                                               &trans    &trans        &trans     &trans
             >;
         };
 
-        // FN — Function + System
+        // EXT — Extended navigation and modifiers
+        ext_layer {
+            label = "EXT";
+            bindings = <
+                &kp ESC   &trans    &trans     &trans     &trans        &kp PG_UP  &kp HOME  &kp UP    &kp END    &kp CAPS
+                &sk LALT  &sk LGUI  &sk LSHFT  &sk LCTRL  &kp RALT      &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp DEL
+                &trans    &trans    &trans     &kp TAB    &trans        &trans     &kp BSPC  &trans    &trans     &trans
+                                               &trans     &kp LCTRL    &trans     &trans
+            >;
+        };
+
+        // FN — Function keys (combo: left+right inner thumbs)
         fn_layer {
             label = "FN";
             bindings = <
-                &kp F1      &kp F2   &kp F3  &kp F4  &kp F5        &kp F6  &kp F7      &kp F8       &kp F9       &kp F10
-                &kp F11     &kp F12  &trans  &trans  &kp CAPS      &trans  &kp C_MUTE  &kp C_VOL_DN &kp C_VOL_UP &trans
-                &bootloader &trans   &trans  &trans  &trans        &trans  &trans      &trans       &trans       &trans
-                                             &trans  &trans        &trans  &trans
+                &kp F1   &kp F2   &kp F3  &kp F4  &kp F5        &kp F6  &kp F7      &kp F8       &kp F9       &kp F10
+                &kp F11  &kp F12  &trans  &trans  &kp CAPS      &trans  &kp C_MUTE  &kp C_VOL_DN &kp C_VOL_UP &trans
+                &trans   &trans   &trans  &trans  &trans        &trans  &trans      &trans       &trans       &trans
+                                          &trans  &trans        &trans  &trans
             >;
         };
 
@@ -208,6 +305,28 @@
                 &trans  &kp C_PREV  &kp C_PP  &kp C_NEXT  &trans        &trans  &trans      &trans       &trans       &trans
                 &trans  &trans      &trans    &trans      &trans        &trans  &kp C_MUTE  &kp C_VOL_DN &kp C_VOL_UP &trans
                                               &trans      &trans        &trans  &trans
+            >;
+        };
+
+        // ACCENT — Danish characters (combo: both right thumbs)
+        accent_layer {
+            label = "ACCENT";
+            bindings = <
+                &trans  &trans  &trans  &trans  &trans        &trans  &trans  &trans  &trans  &trans
+                &ae     &oe     &aa     &trans  &trans        &trans  &AE     &OE     &AA     &trans
+                &trans  &trans  &trans  &trans  &trans        &trans  &trans  &trans  &trans  &trans
+                                        &trans  &trans        &trans  &trans
+            >;
+        };
+
+        // SETTINGS — Bluetooth and system (combo: both left thumbs)
+        settings_layer {
+            label = "SETTINGS";
+            bindings = <
+                &bootloader  &trans  &trans  &bt BT_CLR  &bt BT_SEL 0        &bt BT_SEL 3  &trans    &unstick  &trans  &bootloader
+                &trans       &trans  &trans  &trans      &bt BT_SEL 1        &bt BT_SEL 4  &trans    &trans    &trans  &trans
+                &trans       &trans  &trans  &trans      &bt BT_SEL 2        &bt BT_SEL 5  &trans    &trans    &trans  &trans
+                                             &trans      &trans              &trans        &trans
             >;
         };
     };
