@@ -70,7 +70,7 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
             flavor = "tap-preferred";
-            bindings = <&ae>, <&kp>;
+            bindings = <&danish_ae>, <&kp>;
         };
 
         semi_oe: semi_oe {
@@ -80,7 +80,7 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
             flavor = "tap-preferred";
-            bindings = <&oe>, <&kp>;
+            bindings = <&danish_oe>, <&kp>;
         };
 
         dot_aa: dot_aa {
@@ -90,13 +90,13 @@
             tapping-term-ms = <200>;
             quick-tap-ms = <150>;
             flavor = "tap-preferred";
-            bindings = <&aa>, <&kp>;
+            bindings = <&danish_aa>, <&kp>;
         };
     };
 
     macros {
         // Linux GTK Unicode: Ctrl+Shift+U, hex, Enter
-        ae: ae {
+        danish_ae: danish_ae {
             compatible = "zmk,behavior-macro";
             label = "DATUM_AE";
             #binding-cells = <0>;
@@ -108,7 +108,7 @@
                 ;
         };
 
-        oe: oe {
+        danish_oe: danish_oe {
             compatible = "zmk,behavior-macro";
             label = "DATUM_OE";
             #binding-cells = <0>;
@@ -120,7 +120,7 @@
                 ;
         };
 
-        aa: aa {
+        danish_aa: danish_aa {
             compatible = "zmk,behavior-macro";
             label = "DATUM_AA";
             #binding-cells = <0>;
@@ -132,7 +132,7 @@
                 ;
         };
 
-        AE: AE {
+        danish_ae_cap: danish_ae_cap {
             compatible = "zmk,behavior-macro";
             label = "DATUM_AE_UPPER";
             #binding-cells = <0>;
@@ -144,7 +144,7 @@
                 ;
         };
 
-        OE: OE {
+        danish_oe_cap: danish_oe_cap {
             compatible = "zmk,behavior-macro";
             label = "DATUM_OE_UPPER";
             #binding-cells = <0>;
@@ -156,7 +156,7 @@
                 ;
         };
 
-        AA: AA {
+        danish_aa_cap: danish_aa_cap {
             compatible = "zmk,behavior-macro";
             label = "DATUM_AA_UPPER";
             #binding-cells = <0>;
@@ -313,7 +313,7 @@
             label = "ACCENT";
             bindings = <
                 &trans  &trans  &trans  &trans  &trans        &trans  &trans  &trans  &trans  &trans
-                &ae     &oe     &aa     &trans  &trans        &trans  &AE     &OE     &AA     &trans
+                &danish_ae &danish_oe &danish_aa     &trans  &trans        &trans  &danish_ae_cap &danish_oe_cap &danish_aa_cap     &trans
                 &trans  &trans  &trans  &trans  &trans        &trans  &trans  &trans  &trans  &trans
                                         &trans  &trans        &trans  &trans
             >;
