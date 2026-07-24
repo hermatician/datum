@@ -249,7 +249,7 @@
                 &kp B        &kp L        &kp D        &kp C        &kp V         &kp J           &kp Y           &kp O           &kp U           &kp COMMA
                 &hm LGUI N   &hm LALT R   &hm LSHFT T  &hm LCTRL S  &kp G         &kp P           &hm RCTRL H     &hm RSHFT A     &hm RALT E      &hm RGUI I
                 &kp X        &kp Q        &kp M        &kp W        &kp Z         &kp K           &kp F           &sqt_ae 0 SQT   &semi_oe 0 SEMI  &dot_aa 0 DOT
-                                                       &lt SYM ESC  &lt NAV SPACE &kp A           &lt MEDIA RET
+                                                       &lt SYM ESC  &lt NAV SPACE &lt EXT BSPC    &lt MEDIA RET
             >;
         };
 
