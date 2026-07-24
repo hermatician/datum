@@ -98,7 +98,7 @@
         // Linux GTK Unicode: Ctrl+Shift+U, hex, Enter
         ae: ae {
             compatible = "zmk,behavior-macro";
-            label = "AE";
+            label = "DATUM_AE";
             #binding-cells = <0>;
             bindings
                 = <&macro_press &kp LCTRL &kp LSHFT>
@@ -110,7 +110,7 @@
 
         oe: oe {
             compatible = "zmk,behavior-macro";
-            label = "OE";
+            label = "DATUM_OE";
             #binding-cells = <0>;
             bindings
                 = <&macro_press &kp LCTRL &kp LSHFT>
@@ -122,7 +122,7 @@
 
         aa: aa {
             compatible = "zmk,behavior-macro";
-            label = "AA";
+            label = "DATUM_AA";
             #binding-cells = <0>;
             bindings
                 = <&macro_press &kp LCTRL &kp LSHFT>
@@ -134,7 +134,7 @@
 
         AE: AE {
             compatible = "zmk,behavior-macro";
-            label = "AE_UPPER";
+            label = "DATUM_AE_UPPER";
             #binding-cells = <0>;
             bindings
                 = <&macro_press &kp LCTRL &kp LSHFT>
@@ -146,7 +146,7 @@
 
         OE: OE {
             compatible = "zmk,behavior-macro";
-            label = "OE_UPPER";
+            label = "DATUM_OE_UPPER";
             #binding-cells = <0>;
             bindings
                 = <&macro_press &kp LCTRL &kp LSHFT>
@@ -158,7 +158,7 @@
 
         AA: AA {
             compatible = "zmk,behavior-macro";
-            label = "AA_UPPER";
+            label = "DATUM_AA_UPPER";
             #binding-cells = <0>;
             bindings
                 = <&macro_press &kp LCTRL &kp LSHFT>
