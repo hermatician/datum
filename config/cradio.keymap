@@ -116,7 +116,7 @@
             bindings = <
                 &kp N1   &kp N2    &kp N3   &kp N4   &kp N5        &kp N6    &kp N7    &kp N8     &kp N9     &kp N0
                 &kp TAB  &kp HOME  &kp UP   &kp END  &kp PG_UP     &kp BSPC  &kp LEFT  &kp DOWN   &kp RIGHT  &kp DEL
-                &kp ESC  &trans    &trans   &trans   &kp PG_DN     &trans    &trans    &kp CARET  &trans     &kp RET
+                &kp ESC  &trans    &trans   &trans   &kp PG_DN     &trans    &trans    &kp LS(RBKT)  &trans     &kp RET
                                             &trans   &trans        &trans    &trans
             >;
         };
